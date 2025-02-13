@@ -1,2 +1,5 @@
+<div *ngIf="loading$ | async" class="loading-overlay">
+    <mat-progress-spinner mode="indeterminate" color="accent" diameter="50"></mat-progress-spinner>
+</div>
 <app-menu></app-menu>
 <router-outlet></router-outlet>
