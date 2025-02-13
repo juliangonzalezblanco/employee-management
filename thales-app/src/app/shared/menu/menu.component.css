@@ -8,3 +8,7 @@ mat-toolbar {
     background-color: #1e1e1e;
     color: white;
 }
+
+button:hover{
+    color: rgba(0, 255, 255);
+}

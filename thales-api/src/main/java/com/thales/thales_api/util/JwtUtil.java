@@ -41,6 +41,6 @@ public class JwtUtil {
                 .signWith(SignatureAlgorithm.HS512,
                         secret.getBytes()).compact();
 
-        return "Bearer " + token;
+        return token;
     }
 }

@@ -2,13 +2,12 @@ package com.thales.thales_api.controller;
 
 import com.thales.thales_api.dto.auth.AuthRequestDTO;
 import com.thales.thales_api.util.JwtUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
@@ -29,8 +28,9 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequestDTO request) {
         if (validUsername.equals(request.getUsername()) && validPassword.equals(request.getPassword())) {
-            String token = jwtUtil.getJWTToken(request.getUsername());
-            return ResponseEntity.ok(token);
+            Map<String, String> resp = new HashMap<>();
+            resp.put("token", jwtUtil.getJWTToken(request.getUsername()));
+            return ResponseEntity.ok(resp);
         } else {
             return ResponseEntity.status(401).body("Invalid credentials");
         }

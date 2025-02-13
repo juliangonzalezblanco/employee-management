@@ -1,11 +1,11 @@
 <div class="container">
-    <div class="content">
+    <div class="content fade-in">
         <mat-card class="example-card">
-            <mat-card-header>
+            <mat-card-header class="card-header">
                 <mat-card-title>Welcome</mat-card-title>
             </mat-card-header>
             <mat-card-actions>
-                <button mat-raised-button color="accent" (click)="goToEmployees()">Employees</button>
+                <button mat-raised-button color="accent" class="pulse" routerLink="/employees" (click)="goToEmployees()">Go to Employees</button>
             </mat-card-actions>
         </mat-card>
     </div>

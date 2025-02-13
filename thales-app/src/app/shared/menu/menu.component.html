@@ -1,11 +1,8 @@
 <div class="container">
     <mat-toolbar color="primary">
-        <span>Thales app</span>
-    </mat-toolbar>
-
-    <mat-toolbar color="primary">
-        <button mat-button routerLink="/home">Home</button>
-        <button mat-button routerLink="/employees">Employees</button>
-        <button mat-button routerLink="/contact">Contact</button>
-    </mat-toolbar>
+        <span style="flex: 1; font-weight: bold;">Thales App</span>
+        <button mat-button (click)="navigate('/home')">Home</button>
+        <button mat-button (click)="navigate('/employees')">Employees</button>
+        <button mat-button (click)="navigate('/about')">About</button>
+      </mat-toolbar>
 </div>

@@ -2,9 +2,12 @@ package com.thales.thales_api.client.impl;
 
 import com.thales.thales_api.client.EmployeeApiClient;
 import com.thales.thales_api.dto.EmployeeDTO;
+import com.thales.thales_api.dto.employee.EmployeeApiGeneralResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -26,19 +29,32 @@ public class EmployeeApiClientImpl implements EmployeeApiClient {
     }
 
     @Override
-    public List<EmployeeDTO> getAllEmployees() {
-        ResponseEntity<List<EmployeeDTO>> response = restTemplate.exchange(
-                apiUrl,
+    public EmployeeApiGeneralResponse<List<EmployeeDTO>> getAllEmployees() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Accept", "application/json");
+        headers.set("Cookie", "humans_21909=1");
+        HttpEntity<?> entity = new HttpEntity<>(headers);
+        ResponseEntity<EmployeeApiGeneralResponse<List<EmployeeDTO>>> response = restTemplate.exchange(
+                apiUrl + "/employees",
                 HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<List<EmployeeDTO>>() {}
+                entity,
+                new ParameterizedTypeReference<EmployeeApiGeneralResponse<List<EmployeeDTO>>>() {}
         );
         return response.getBody();
     }
 
     @Override
-    public EmployeeDTO getEmployeeById(Long id) {
-        String url = apiUrl + "/" + id;
-        return restTemplate.getForObject(url, EmployeeDTO.class);
+    public EmployeeApiGeneralResponse<EmployeeDTO> getEmployeeById(Long id) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Accept", "application/json");
+        headers.set("Cookie", "humans_21909=1");
+        HttpEntity<?> entity = new HttpEntity<>(headers);
+        ResponseEntity<EmployeeApiGeneralResponse<EmployeeDTO>> response = restTemplate.exchange(
+                apiUrl + "/employee/" + id,
+                HttpMethod.GET,
+                entity,
+                new ParameterizedTypeReference<EmployeeApiGeneralResponse<EmployeeDTO>>() {}
+        );
+        return response.getBody();
     }
 }
