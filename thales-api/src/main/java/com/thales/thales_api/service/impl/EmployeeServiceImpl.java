@@ -25,9 +25,9 @@ public class EmployeeServiceImpl implements EmployeeService {
             listEmployeeApiGeneralResponse.getData().forEach((e)->e.setEmployeeAnualSalary(e.getEmployeeSalary()*12));
             return listEmployeeApiGeneralResponse;
         } catch (HttpClientErrorException | HttpServerErrorException ex) {
-            throw new EmployeeApiException("Error al llamar la API de empleados: " + ex.getMessage());
+            throw new EmployeeApiException("Error in employees API: " + ex.getMessage());
         } catch (Exception ex) {
-            throw new EmployeeApiException("Error inesperado al obtener empleados: " + ex.getMessage());
+            throw new EmployeeApiException("Unexpected error in employees API: " + ex.getMessage());
         }
     }
 

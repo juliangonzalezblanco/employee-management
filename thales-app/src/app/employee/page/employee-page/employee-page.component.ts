@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { EmployeeService } from '../../application/employee.service';
 import { EmployeeApiGeneralResponse } from '../../model/employee-api-general-response.dto';
 import { EmployeeDTO } from '../../model/employee.dto';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { ErrorDialogComponent } from 'src/app/shared/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-employee-page',
@@ -15,7 +13,7 @@ export class EmployeePageComponent {
   error: string = '';
   employees: EmployeeDTO[] = [];
 
-  constructor(private employeeService: EmployeeService, private dialog: MatDialog) { }
+  constructor(private employeeService: EmployeeService) { }
 
   search() {
     if (!this.searchQuery) {

@@ -14,10 +14,10 @@ import java.util.Map;
 public class AuthController {
 
     @Value("${app.auth.username}")
-    private String validUsername;
+    String validUsername;
 
     @Value("${app.auth.password}")
-    private String validPassword;
+    String validPassword;
 
     private final JwtUtil jwtUtil;
 
