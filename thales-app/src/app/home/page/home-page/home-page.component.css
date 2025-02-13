@@ -1,0 +1,11 @@
+.container {
+  background-color: #121212;
+  min-height: 90vh;
+  color: white;
+}
+
+.example-card {
+  background-color: #333;
+  margin: auto;
+  width: 300px;
+}

@@ -1,0 +1,10 @@
+.container {
+    background-color: #121212;
+    min-height: 10vh;
+    color: white;
+}
+
+mat-toolbar {
+    background-color: #1e1e1e;
+    color: white;
+}
