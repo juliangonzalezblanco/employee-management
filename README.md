@@ -1,6 +1,6 @@
-**** In the root of the repository please execute all this block:
+*** In the root of the repository please execute all this block: ***
 
----------------------------------
+
 cd thales-api
 docker build -t thales-api-image . 
 docker run -d --name thales-api -p 8080:8080 thales-api-image
@@ -10,7 +10,7 @@ cd thales-app
 docker build -t thales-app-image .
 docker run -d -p 4200:4200 --name thales-app thales-app-image
 cd..
----------------------------------
+
 
 In a browser, go to http://localhost:4200/
 
