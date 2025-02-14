@@ -1,0 +1,4 @@
+com\thales\thales_api\controller\AuthControllerTest.class
+com\thales\thales_api\ThalesApiApplicationTests.class
+com\thales\thales_api\service\impl\EmployeeServiceImplTest.class
+com\thales\thales_api\controller\EmployeeControllerTest.class

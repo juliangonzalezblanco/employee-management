@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkthales_app=self.webpackChunkthales_app||[]).push([[592],{2340:(s,e,a)=>{a.d(e,{N:()=>p});const p={production:!1,apiUrl:"http://localhost:8080/thales-api/v1"}}}]);
